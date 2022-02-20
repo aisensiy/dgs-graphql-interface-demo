@@ -1,0 +1,41 @@
+interface Job {
+  id: ID!
+  owner: Party!
+  name: String!
+}
+
+type Task implements Job {
+  id: ID!
+  owner: Party!
+  name: String!
+
+  command: String!
+}
+
+type Lab implements Job {
+  id: ID!
+  owner: Party!
+  name: String!
+
+  environment: String!
+}
+
+interface Party {
+  id: ID!
+  name: String!
+}
+
+type User implements Party {
+  id: ID!
+  name: String!
+
+  username: String!
+}
+
+type Org implements Party {
+  id: ID!
+  name: String!
+
+  owner: User!
+  memebers: [User!]!
+}
